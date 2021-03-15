@@ -24,7 +24,7 @@ public class ImmigrantService {
 
     public List<Immigrant> findAllByProfession(String profession) {
         List<Immigrant> immigrants = new ArrayList<>();
-        immigrantRepository.findAllByProfession(profession).forEach(immigrants::add);
+        immigrantRepository.findAllByProfession(profession.toLowerCase()).forEach(immigrants::add);
         if (immigrants.size() == 0){
             throw new ImmigrantException("No Immigrant matches a profession: " + profession);
         }
@@ -32,8 +32,12 @@ public class ImmigrantService {
     }
 
     public Immigrant findByFirstNameAndLastName(String firstName, String lastName) {
-        return immigrantRepository.findByFirstNameAndLastName(firstName, lastName).orElseThrow(() ->
+        return immigrantRepository.findByFirstNameAndLastName(firstName.toLowerCase(), lastName.toLowerCase()).orElseThrow(() ->
                 new ImmigrantException("No Immigrant matches " + firstName + " " + lastName)
         );
+    }
+
+    public Immigrant save(Immigrant immigrant){
+        return immigrantRepository.save(Immigrant.toLowerCase(immigrant));
     }
 }
