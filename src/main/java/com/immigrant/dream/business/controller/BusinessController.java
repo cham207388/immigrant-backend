@@ -1,41 +1,47 @@
 package com.immigrant.dream.business.controller;
 
-
 import com.immigrant.dream.business.entity.Business;
-import com.immigrant.dream.business.service.BusinessService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.immigrant.dream.exception.ImmigrantException;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-@RestController
-@RequestMapping(path = "/businesses")
-public class BusinessController {
-
-    @Autowired
-    private BusinessService businessService;
-
+public interface BusinessController {
+    @ApiOperation(value = "find a business by id")
+    @ApiResponses(value = {
+            @ApiResponse(code = HttpServletResponse.SC_ACCEPTED, message = "Success", response = Business.class),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST, message = "Bad request", response = ImmigrantException.class)
+    })
     @GetMapping(path = "/business/id/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Business findById(@PathVariable Long id){
-        return businessService.findById(id);
-    }
+    Business findById(@PathVariable Long id);
 
+    @ApiOperation(value = "find a business by name")
+    @ApiResponses(value = {
+            @ApiResponse(code = HttpServletResponse.SC_ACCEPTED, message = "Success", response = Business.class),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST, message = "Bad request", response = ImmigrantException.class)
+    })
     @GetMapping(path = "/business/businessName/{businessName}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Business findByBusinessName(@PathVariable String businessName){
-        return businessService.findByBusinessName(businessName);
-    }
+    Business findByBusinessName(@PathVariable String businessName);
 
+    @ApiOperation(value = "find all businesses")
+    @ApiResponses(value = {
+            @ApiResponse(code = HttpServletResponse.SC_ACCEPTED, message = "Success", response = List.class),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST, message = "Bad request", response = ImmigrantException.class)
+    })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Business> findAll(){
-        return businessService.findAll();
-    }
+    List<Business> findAll();
 
+    @ApiOperation(value = "find all businesses by type")
+    @ApiResponses(value = {
+            @ApiResponse(code = HttpServletResponse.SC_ACCEPTED, message = "Success", response = List.class),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST, message = "Bad request", response = ImmigrantException.class)
+    })
     @GetMapping(path = "/businessType/{businessType}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Business> findAllByBusinessType(@PathVariable String businessType){
-        return businessService.findAllByBusinessType(businessType);
-    }
+    List<Business> findAllByBusinessType(@PathVariable String businessType);
 }

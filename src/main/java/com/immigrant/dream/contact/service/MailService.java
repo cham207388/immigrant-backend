@@ -1,6 +1,6 @@
 package com.immigrant.dream.contact.service;
 
-import com.immigrant.dream.contact.config.MailConfiguration;
+import com.immigrant.dream.config.MailConfiguration;
 import com.immigrant.dream.contact.entity.ContactData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

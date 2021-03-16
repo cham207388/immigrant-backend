@@ -1,4 +1,4 @@
-package com.immigrant.dream.contact.config;
+package com.immigrant.dream.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
