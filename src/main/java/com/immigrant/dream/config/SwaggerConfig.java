@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Configuration
-@EnableSwagger2
+@EnableSwagger2 
 public class SwaggerConfig {
 
     public static final Contact DEFAULT_CONTACT = new Contact("Immigrants", "website", "theimmigrantdream.com");

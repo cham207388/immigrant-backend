@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,7 +47,7 @@ public class ImmigrantControllerImpl {
             @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST, message = "Bad request", response = ImmigrantException.class)
     })
     @GetMapping(path = "/story/firstName/{firstName}/lastName/{lastName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Immigrant findAByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName){
+    public Immigrant findByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName){
         return immigrantService.findByFirstNameAndLastName(firstName, lastName);
     }
 
@@ -56,6 +57,7 @@ public class ImmigrantControllerImpl {
             @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST, message = "Bad request", response = ImmigrantException.class)
     })
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public Immigrant save(@RequestBody Immigrant immigrant){
         return immigrantService.save(immigrant);
     }
