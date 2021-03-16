@@ -33,7 +33,7 @@ public class ImmigrantControllerImpl implements ImmigrantController {
     @Override
     @GetMapping(path = "/story/firstName/{firstName}/lastName/{lastName}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Immigrant findByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName){
-        return immigrantService.findByFirstNameAndLastName(firstName, lastName);
+        return Immigrant.capitalize(immigrantService.findByFirstNameAndLastName(firstName, lastName));
     }
 
     @Override

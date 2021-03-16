@@ -47,24 +47,46 @@ public class Immigrant {
     @ApiModelProperty(name = "origin", required = true)
     private String origin;
 
-    public static Immigrant toLowerCase(Immigrant immigrant) {
-        if (!StringUtils.isEmpty(immigrant.getFirstName())) {
-            immigrant.setFirstName(immigrant.getFirstName().toLowerCase());
+    public static Immigrant lowerCase(Immigrant immigrant) {
+        if (StringUtils.isNotEmpty(immigrant.getFirstName())) {
+            immigrant.setFirstName(StringUtils.lowerCase(immigrant.getFirstName()));
         }
-        if (!StringUtils.isEmpty(immigrant.getLastName())) {
-            immigrant.setLastName(immigrant.getLastName().toLowerCase());
+        if (StringUtils.isNotEmpty(immigrant.getLastName())) {
+            immigrant.setLastName(StringUtils.lowerCase(immigrant.getLastName()));
         }
-        if (!StringUtils.isEmpty(immigrant.getProfession())) {
-            immigrant.setProfession(immigrant.getProfession().toLowerCase());
+        if (StringUtils.isNotEmpty(immigrant.getProfession())) {
+            immigrant.setProfession(StringUtils.lowerCase(immigrant.getProfession()));
         }
-        if (!StringUtils.isEmpty(immigrant.getStory())) {
-            immigrant.setStory(immigrant.getStory().toLowerCase());
+        if (StringUtils.isNotEmpty(immigrant.getStory())) {
+            immigrant.setStory(StringUtils.lowerCase(immigrant.getStory()));
         }
-        if (!StringUtils.isEmpty(immigrant.getHubby())) {
-            immigrant.setHubby(immigrant.getHubby().toLowerCase());
+        if (StringUtils.isNotEmpty(immigrant.getHubby())) {
+            immigrant.setHubby(StringUtils.lowerCase(immigrant.getHubby()));
         }
-        if (!StringUtils.isEmpty(immigrant.getOrigin())) {
-            immigrant.setOrigin(immigrant.getOrigin().toLowerCase());
+        if (StringUtils.isNotEmpty(immigrant.getOrigin())) {
+            immigrant.setOrigin(StringUtils.lowerCase(immigrant.getOrigin()));
+        }
+        return immigrant;
+    }
+
+    public static Immigrant capitalize(Immigrant immigrant) {
+        if (StringUtils.isNotEmpty(immigrant.getFirstName())) {
+            immigrant.setFirstName(StringUtils.capitalize(immigrant.getFirstName()));
+        }
+        if (StringUtils.isNotEmpty(immigrant.getLastName())) {
+            immigrant.setLastName(StringUtils.capitalize(immigrant.getLastName()));
+        }
+        if (StringUtils.isNotEmpty(immigrant.getProfession())) {
+            immigrant.setProfession(StringUtils.capitalize(immigrant.getProfession()));
+        }
+        if (StringUtils.isNotEmpty(immigrant.getStory())) {
+            immigrant.setStory(StringUtils.capitalize(immigrant.getStory()));
+        }
+        if (StringUtils.isNotEmpty(immigrant.getHubby())) {
+            immigrant.setHubby(StringUtils.capitalize(immigrant.getHubby()));
+        }
+        if (StringUtils.isNotEmpty(immigrant.getOrigin())) {
+            immigrant.setOrigin(StringUtils.capitalize(immigrant.getOrigin()));
         }
         return immigrant;
     }

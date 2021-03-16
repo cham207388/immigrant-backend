@@ -2,6 +2,7 @@ package com.immigrant.dream.business.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,4 +43,47 @@ public class Business {
     @ApiModelProperty(name = "the type of business")
     private String businessType;
 
+    public static Business lowercase(Business business) {
+        if (StringUtils.isNotEmpty(business.getBusinessName())) {
+            business.setBusinessName(StringUtils.lowerCase(business.getBusinessName()));
+        }
+        if (StringUtils.isNotEmpty(business.getBusinessDescription())) {
+            business.setBusinessDescription(StringUtils.lowerCase(business.getBusinessDescription()));
+        }
+        if (StringUtils.isNotEmpty(business.getBusinessLocation())) {
+            business.setBusinessLocation(StringUtils.lowerCase(business.getBusinessLocation()));
+        }
+        if (StringUtils.isNotEmpty(business.getBusinessName())) {
+            business.setBusinessProducts(StringUtils.lowerCase(business.getBusinessName()));
+        }
+        if (StringUtils.isNotEmpty(business.getBusinessSite())) {
+            business.setBusinessSite(StringUtils.lowerCase(business.getBusinessSite()));
+        }
+        if (StringUtils.isNotEmpty(business.getBusinessType())) {
+            business.setBusinessType(StringUtils.lowerCase(business.getBusinessType()));
+        }
+        return business;
+    }
+
+    public static Business capitalize(Business business) {
+        if (!StringUtils.isEmpty(business.getBusinessName())) {
+            business.setBusinessName(StringUtils.capitalize(business.getBusinessName()));
+        }
+        if (!StringUtils.isEmpty(business.getBusinessDescription())) {
+            business.setBusinessDescription(StringUtils.capitalize(business.getBusinessDescription()));
+        }
+        if (!StringUtils.isEmpty(business.getBusinessLocation())) {
+            business.setBusinessLocation(StringUtils.capitalize(business.getBusinessLocation()));
+        }
+        if (!StringUtils.isEmpty(business.getBusinessName())) {
+            business.setBusinessProducts(StringUtils.capitalize(business.getBusinessName()));
+        }
+        if (!StringUtils.isEmpty(business.getBusinessSite())) {
+            business.setBusinessSite(StringUtils.capitalize(business.getBusinessSite()));
+        }
+        if (!StringUtils.isEmpty(business.getBusinessType())) {
+            business.setBusinessType(StringUtils.capitalize(business.getBusinessType()));
+        }
+        return business;
+    }
 }
