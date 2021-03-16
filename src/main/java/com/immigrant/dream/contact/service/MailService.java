@@ -23,7 +23,7 @@ public class MailService {
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setFrom(mailConfiguration.getFrom());
-            mailMessage.setTo(mailConfiguration.getReceiverOne());//, mailConfiguration.getReceiverTwo());
+            mailMessage.setTo(mailConfiguration.getReceiverOne(), mailConfiguration.getReceiverTwo());
 
             mailMessage.setSubject("Immigrant Dream Inquire");
             mailMessage.setText("From:\t" + contactData.getEmail() +

@@ -15,8 +15,8 @@ class ImmigrantTest {
     private static final String ORIGIN = "the gambia";
 
     @Test
-    void toLowerCase() {
-        assertNotNull(Immigrant.toLowerCase(immigrant()));
+    void capitalize() {
+        assertNotNull(Immigrant.capitalize(immigrant()));
     }
 
     @Test

@@ -14,8 +14,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -50,6 +49,18 @@ class BusinessServiceTest {
     void findAllByBusinessType() {
         when(businessRepository.findAllByBusinessType(anyString())).thenReturn(Collections.singletonList(business()));
         assertNotNull(classUnderTest.findAllByBusinessType("type"));
+    }
+
+    @Test
+    void saveAll() {
+        when(businessRepository.saveAll(any())).thenReturn(Collections.singletonList(business()));
+        assertNotNull(classUnderTest.saveAll(Collections.singletonList(business())));
+    }
+
+    @Test
+    void save() {
+        when(businessRepository.save(any())).thenReturn(business());
+        assertNotNull(classUnderTest.save(business()));
     }
 
     private Business business() {
