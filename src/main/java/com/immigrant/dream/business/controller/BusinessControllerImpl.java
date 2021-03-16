@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(tags = "ImmigrantBusiness API")
+@Api(tags = "Business API")
 @RestController
 @RequestMapping(path = "/businesses")
 public class BusinessControllerImpl implements BusinessController {
