@@ -28,7 +28,6 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-dont-push/data.sql
 dont-push/
 
 ### VS Code ###
