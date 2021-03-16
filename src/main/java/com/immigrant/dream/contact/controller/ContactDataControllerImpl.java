@@ -19,6 +19,7 @@ import java.util.List;
 @Api(tags = "Contact Data API")
 @RestController
 @RequestMapping(path = "/contact-data")
+@CrossOrigin(maxAge = 3600)
 public class ContactDataControllerImpl implements ContactDataController {
 
     @Autowired

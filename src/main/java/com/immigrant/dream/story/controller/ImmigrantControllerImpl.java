@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/stories")
 @Api(tags = "Story API")
+@CrossOrigin(maxAge = 3600)
 public class ImmigrantControllerImpl implements ImmigrantController {
 
     @Autowired

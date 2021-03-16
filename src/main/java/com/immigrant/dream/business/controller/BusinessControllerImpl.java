@@ -14,6 +14,7 @@ import java.util.List;
 @Api(tags = "Business API")
 @RestController
 @RequestMapping(path = "/businesses")
+@CrossOrigin(maxAge = 3600)
 public class BusinessControllerImpl implements BusinessController {
 
     @Autowired
