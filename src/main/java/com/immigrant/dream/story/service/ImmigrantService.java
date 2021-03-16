@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ImmigrantService {
@@ -25,7 +26,7 @@ public class ImmigrantService {
     public List<Immigrant> findAllByProfession(String profession) {
         List<Immigrant> immigrants = new ArrayList<>();
         immigrantRepository.findAllByProfession(profession.toLowerCase()).forEach(immigrants::add);
-        if (immigrants.size() == 0){
+        if (immigrants.size() == 0) {
             throw new ImmigrantException("No Immigrant matches a profession: " + profession);
         }
         return immigrants;
@@ -37,7 +38,14 @@ public class ImmigrantService {
         );
     }
 
-    public Immigrant save(Immigrant immigrant){
+    public Immigrant save(Immigrant immigrant) {
         return immigrantRepository.save(Immigrant.toLowerCase(immigrant));
+    }
+
+    public List<Immigrant> saveAll(List<Immigrant> immigrants) {
+        immigrants = immigrants.stream().map(Immigrant::toLowerCase).collect(Collectors.toList());
+        List<Immigrant> list = new ArrayList<>();
+        immigrantRepository.saveAll(immigrants).forEach(list::add);
+        return list;
     }
 }

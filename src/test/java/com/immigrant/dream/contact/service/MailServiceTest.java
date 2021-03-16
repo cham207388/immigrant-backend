@@ -33,6 +33,7 @@ class MailServiceTest {
     void sendEmail() {
         when(mailConfiguration.getFrom()).thenReturn("email@mail.com");
         when(mailConfiguration.getReceiverOne()).thenReturn("email@mail.com");
+        when(mailConfiguration.getReceiverTwo()).thenReturn("email@mail.com");
         doNothing().when(javaMailSender).send((MimeMessage) any());
         classUnderTeest.sendEmail(contactData());
         verify(javaMailSender, atMost(1)).send((MimeMessage) any());

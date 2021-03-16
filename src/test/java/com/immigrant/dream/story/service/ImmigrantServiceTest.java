@@ -70,6 +70,12 @@ class ImmigrantServiceTest {
         assertNotNull(classUnderTest.save(immigrant()));
     }
 
+    @Test
+    void saveAll() {
+        when(immigrantRepository.save(any())).thenReturn(Collections.singletonList(immigrantId()));
+        assertNotNull(classUnderTest.saveAll(Collections.singletonList(immigrant())));
+    }
+
     private Immigrant immigrant() {
         Immigrant immigrant = new Immigrant();
         immigrant.setFirstName(FIRST_NAME);

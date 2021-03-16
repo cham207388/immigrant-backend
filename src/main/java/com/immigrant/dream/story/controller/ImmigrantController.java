@@ -45,4 +45,13 @@ public interface ImmigrantController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     Immigrant save(@RequestBody Immigrant immigrant);
+
+    @ApiOperation(value = "save an immigrant")
+    @ApiResponses(value = {
+            @ApiResponse(code = HttpServletResponse.SC_ACCEPTED, message = "Success", response = Immigrant.class),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST, message = "Bad request", response = ImmigrantException.class)
+    })
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    List<Immigrant> saveAll(@RequestBody List<Immigrant> immigrant);
 }

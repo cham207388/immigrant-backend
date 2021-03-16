@@ -42,4 +42,11 @@ public class ImmigrantControllerImpl implements ImmigrantController {
     public Immigrant save(@RequestBody Immigrant immigrant){
         return immigrantService.save(immigrant);
     }
+
+    @Override
+    @PostMapping(path = "/all",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Immigrant> saveAll(List<Immigrant> immigrants) {
+        return immigrantService.saveAll(immigrants);
+    }
 }
