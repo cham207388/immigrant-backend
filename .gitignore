@@ -33,3 +33,4 @@ dont-push/
 
 ### VS Code ###
 .vscode/
+/dont-push/
