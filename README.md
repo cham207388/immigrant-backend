@@ -3,12 +3,13 @@
 There are 3 APIs in this project \
 Data is stored in h2 in-memory db
 
-##1 /contact-data
+## /contact-data
 * This API handles data for users who send inquiries to us
-##2 /stories
+
+## /stories
 * This API handles immigrants stories
 
-##3 /businesses
+## /businesses
 * This API handles immigrants business
 
 Once the project is cloned and ran, you can see the documentation at
