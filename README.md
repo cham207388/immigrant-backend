@@ -13,5 +13,5 @@ Data is stored in h2 in-memory db
 * This API handles immigrants business
 
 Once the project is cloned and ran, you can see the documentation at
-* [Swagger-ui](http://localhost:8000/swagger-ui/index.html)
+* [Swagger-ui](http://localhost:8000/swagger-ui/index.html" target="_blank")
 * [Swagger-docs](http://localhost:8000/v2/api-docs)
