@@ -2,14 +2,16 @@ package com.immigrant.dream.story.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Data
+@Getter
+@Setter
 @ApiModel(description = "recipe object")
 public class Immigrant {
 
@@ -45,23 +47,23 @@ public class Immigrant {
     @ApiModelProperty(name = "origin", required = true)
     private String origin;
 
-    public static Immigrant toLowerCase(Immigrant immigrant){
-        if (StringUtils.isEmpty(immigrant.getFirstName())){
+    public static Immigrant toLowerCase(Immigrant immigrant) {
+        if (!StringUtils.isEmpty(immigrant.getFirstName())) {
             immigrant.setFirstName(immigrant.getFirstName().toLowerCase());
         }
-        if (StringUtils.isEmpty(immigrant.getLastName())){
+        if (!StringUtils.isEmpty(immigrant.getLastName())) {
             immigrant.setLastName(immigrant.getLastName().toLowerCase());
         }
-        if (StringUtils.isEmpty(immigrant.getProfession())){
+        if (!StringUtils.isEmpty(immigrant.getProfession())) {
             immigrant.setProfession(immigrant.getProfession().toLowerCase());
         }
-        if (StringUtils.isEmpty(immigrant.getStory())){
+        if (!StringUtils.isEmpty(immigrant.getStory())) {
             immigrant.setStory(immigrant.getStory().toLowerCase());
         }
-        if (StringUtils.isEmpty(immigrant.getHubby())){
+        if (!StringUtils.isEmpty(immigrant.getHubby())) {
             immigrant.setHubby(immigrant.getHubby().toLowerCase());
         }
-        if (StringUtils.isEmpty(immigrant.getOrigin())){
+        if (!StringUtils.isEmpty(immigrant.getOrigin())) {
             immigrant.setOrigin(immigrant.getOrigin().toLowerCase());
         }
         return immigrant;

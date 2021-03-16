@@ -1,5 +1,6 @@
 package com.immigrant.dream.story.service;
 
+import com.immigrant.dream.exception.ImmigrantException;
 import com.immigrant.dream.story.entity.Immigrant;
 import com.immigrant.dream.story.repository.ImmigrantRepository;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -48,15 +50,24 @@ class ImmigrantServiceTest {
     }
 
     @Test
+    void findAllByProfessionException() {
+        when(immigrantRepository.findAllByProfession(anyString())).thenThrow(ImmigrantException.class);
+        assertThrows(ImmigrantException.class,
+                () -> {
+                    classUnderTest.findAllByProfession(PROFESSION);
+                });
+    }
+
+    @Test
     void findByFirstNameAndLastName() {
         when(immigrantRepository.findByFirstNameAndLastName(anyString(), anyString())).thenReturn(Optional.of(immigrantId()));
-        assertNotNull(classUnderTest.findAll());
+        assertNotNull(classUnderTest.findByFirstNameAndLastName(FIRST_NAME, LAST_NAME));
     }
 
     @Test
     void save() {
         when(immigrantRepository.save(any())).thenReturn(immigrantId());
-        assertNotNull(classUnderTest.findAll());
+        assertNotNull(classUnderTest.save(immigrant()));
     }
 
     private Immigrant immigrant() {
