@@ -5,6 +5,7 @@ import com.immigrant.dream.business.entity.Business;
 import com.immigrant.dream.business.service.BusinessService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,12 +45,14 @@ public class BusinessControllerImpl implements BusinessController {
 
     @Override
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public Business save(@RequestBody Business business) {
         return businessService.save(business);
     }
 
     @Override
     @PostMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public List<Business> saveAll(@RequestBody List<Business> businesses) {
         return businessService.saveAll(businesses);
     }

@@ -15,8 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Collections;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -77,6 +76,16 @@ class ImmigrantControllerImplTest {
         when(immigrantService.save(any())).thenReturn(immigrantId());
         mockMvc.perform(post(LOCAL_HOST)
                 .content(objectMapper.writeValueAsString(immigrant()))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isCreated());
+    }
+
+    @Test
+    @DisplayName("save list")
+    void saveAll() throws Exception {
+        when(immigrantService.saveAll(anyList())).thenReturn(Collections.singletonList(immigrantId()));
+        mockMvc.perform(post(LOCAL_HOST + "/all")
+                .content(objectMapper.writeValueAsString(Collections.singletonList(immigrant())))
                 .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isCreated());
     }
