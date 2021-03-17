@@ -49,4 +49,10 @@ public class ImmigrantService {
         immigrantRepository.saveAll(immigrants).forEach(list::add);
         return list;
     }
+
+    public Immigrant findById(Long id) {
+        return immigrantRepository.findById(id).orElseThrow(
+                () -> new ImmigrantException("No Immigrant matches this criterium")
+        );
+    }
 }
