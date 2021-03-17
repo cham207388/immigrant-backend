@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/stories")
 @Api(tags = "Story API")
+@CrossOrigin(origins = { "http://localhost:3000" })
 public class ImmigrantControllerImpl implements ImmigrantController {
 
     @Autowired
@@ -28,6 +29,12 @@ public class ImmigrantControllerImpl implements ImmigrantController {
     @GetMapping(path = "/profession/{profession}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Immigrant> findAllByPrefession(@PathVariable String profession){
         return immigrantService.findAllByProfession(profession);
+    }
+
+    @Override
+    @GetMapping(path = "/story/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Immigrant findById(@PathVariable Long id){
+        return immigrantService.findById(id);
     }
 
     @Override
