@@ -12,9 +12,10 @@ Data is stored in h2 in-memory db
 ## /businesses
 * This API handles immigrants business
 
-##Notes about envrironment variables
-Set environment variables for the plaveholders in application.properties file 
-Example: \
+## Envrironment variables
+Set environment variables for the placeholders in application.properties file \
+if you want to see the content in the in-memory h2 db \
+Example:
 * username=sa
 * password=yellow
 * receiverOne=email@mail.com
