@@ -31,10 +31,6 @@ public class Business {
     @ApiModelProperty(name = "business location", required = true)
     private String businessLocation;
 
-    @Column(name = "business_products")
-    @ApiModelProperty(name = "business products")
-    private String businessProducts;
-
     @Column(name = "business_site")
     @ApiModelProperty(name = "business website")
     private String businessSite;
@@ -52,9 +48,6 @@ public class Business {
         }
         if (StringUtils.isNotEmpty(business.getBusinessLocation())) {
             business.setBusinessLocation(StringUtils.lowerCase(business.getBusinessLocation()));
-        }
-        if (StringUtils.isNotEmpty(business.getBusinessName())) {
-            business.setBusinessProducts(StringUtils.lowerCase(business.getBusinessName()));
         }
         if (StringUtils.isNotEmpty(business.getBusinessSite())) {
             business.setBusinessSite(StringUtils.lowerCase(business.getBusinessSite()));
@@ -74,9 +67,6 @@ public class Business {
         }
         if (!StringUtils.isEmpty(business.getBusinessLocation())) {
             business.setBusinessLocation(StringUtils.capitalize(business.getBusinessLocation()));
-        }
-        if (!StringUtils.isEmpty(business.getBusinessName())) {
-            business.setBusinessProducts(StringUtils.capitalize(business.getBusinessName()));
         }
         if (!StringUtils.isEmpty(business.getBusinessSite())) {
             business.setBusinessSite(StringUtils.capitalize(business.getBusinessSite()));
