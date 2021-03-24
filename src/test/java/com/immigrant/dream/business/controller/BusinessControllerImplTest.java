@@ -90,12 +90,11 @@ class BusinessControllerImplTest {
 
     private Business business() {
         Business business = new Business();
-        business.setBusinessName("name");
-        business.setBusinessDescription("description");
-        business.setBusinessLocation("location");
-        business.setBusinessProducts("product prod");
-        business.setBusinessSite("name.com");
-        business.setBusinessType("type");
+        business.setName("name");
+        business.setDescription("description");
+        business.setLocation("location");
+        business.setSite("name.com");
+        business.setType("type");
         return business;
     }
 }
