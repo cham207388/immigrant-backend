@@ -68,7 +68,6 @@ class BusinessServiceTest {
         business.setBusinessName("name");
         business.setBusinessDescription("description");
         business.setBusinessLocation("location");
-        business.setBusinessProducts("product prod");
         business.setBusinessSite("name.com");
         business.setBusinessType("type");
         return business;
