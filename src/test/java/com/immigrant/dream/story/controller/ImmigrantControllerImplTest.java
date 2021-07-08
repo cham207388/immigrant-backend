@@ -71,6 +71,15 @@ class ImmigrantControllerImplTest {
     }
 
     @Test
+    @DisplayName("Find by ID")
+    void findById() throws Exception {
+        when(immigrantService.findById(anyLong())).thenReturn((immigrantId()));
+        mockMvc.perform(get(LOCAL_HOST + "/story/id/1")
+                .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isOk());
+    }
+
+    @Test
     @DisplayName("save")
     void save() throws Exception {
         when(immigrantService.save(any())).thenReturn(immigrantId());
