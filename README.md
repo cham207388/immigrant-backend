@@ -21,6 +21,6 @@ Example:
 * receiverOne=email@mail.com
 * etc
 
-Once the project is cloned and ran, you can see the documentation at
-* [Swagger-ui](http://localhost:8000/swagger-ui/index.html)
+Once the project is clone and ran, you can see the documentation at
+* [Swagger-ui](http://localhost:8000/swagger-ui.html)
 * [Swagger-docs](http://localhost:8000/v2/api-docs)
