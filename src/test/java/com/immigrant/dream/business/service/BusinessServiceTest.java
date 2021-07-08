@@ -65,11 +65,11 @@ class BusinessServiceTest {
 
     private Business business() {
         Business business = new Business();
-        business.setName("name");
-        business.setDescription("description");
-        business.setLocation("location");
-        business.setSite("name.com");
-        business.setType("type");
+        business.setBusinessName("name");
+        business.setBusinessDescription("description");
+        business.setBusinessLocation("location");
+        business.setBusinessSite("name.com");
+        business.setBusinessType("type");
         return business;
     }
 }

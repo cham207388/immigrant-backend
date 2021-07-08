@@ -1,12 +1,9 @@
 package com.immigrant.dream;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
+//@SpringBootTest
 class ImmigrantBackendApplicationTests {
 
-    @Test
+    //@Test
     void contextLoads() {
     }
 
