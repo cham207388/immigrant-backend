@@ -34,6 +34,7 @@ public class ImmigrantControllerImpl implements ImmigrantController {
     @Override
     @GetMapping(path = "/story/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Immigrant findById(@PathVariable Long id){
+
         return immigrantService.findById(id);
     }
 
