@@ -1,4 +1,4 @@
-package com.immigrant.dream.actuator;
+package com.immigrant.dream.actuator.info;
 
 import org.springframework.boot.actuate.info.Info;
 import org.springframework.boot.actuate.info.InfoContributor;

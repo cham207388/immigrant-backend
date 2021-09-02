@@ -1,4 +1,4 @@
-package com.immigrant.dream.actuator;
+package com.immigrant.dream.actuator.info;
 
 import guru.springframework.norris.chuck.ChuckNorrisInfoContributor;
 import org.springframework.context.annotation.Bean;
