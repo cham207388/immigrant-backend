@@ -31,7 +31,7 @@ public class BusinessService {
         List<Business> businesses = new ArrayList<>();
         businessRepository.findAll().forEach(businesses::add);
         if (businesses.size() == 0) {
-            throw new ImmigrantException("Unavailable!");
+            return new ArrayList<>();
         }
         return businesses;
     }
