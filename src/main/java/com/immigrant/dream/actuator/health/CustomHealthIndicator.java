@@ -13,7 +13,7 @@ public class CustomHealthIndicator implements HealthIndicator {
 		Random random = new Random();
 
 		if (random.nextBoolean()){
-			return Health.down().withDetail("ERR-001", "Random failure").build();
+			return Health.up().withDetail("ERR-001", "Random failure").build();
 		}
 		return Health.up().build();
 	}

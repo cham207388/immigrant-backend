@@ -2,7 +2,6 @@ package com.immigrant.dream.story.controller;
 
 import com.immigrant.dream.story.entity.Immigrant;
 import com.immigrant.dream.story.service.ImmigrantService;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/stories")
-@Api(tags = "Story API")
 @CrossOrigin(origins = { "http://localhost:3000" })
 public class ImmigrantControllerImpl implements ImmigrantController {
 

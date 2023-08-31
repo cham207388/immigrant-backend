@@ -1,9 +1,10 @@
 package com.immigrant.dream.contact.entity;
 
-import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Getter
@@ -17,21 +18,17 @@ public class ContactData {
 
     @Column(name = "email")
     @NotBlank(message = "Email cannot be blank")
-    @ApiModelProperty(name = "email", required = true)
     private String email;
 
     @Column(name = "first_name")
     @NotBlank(message = "First Name cannot be blank")
-    @ApiModelProperty(name = "first name", required = true)
     private String firstName;
 
     @Column(name = "last_name")
     @NotBlank(message = "Last Name cannot be blank")
-    @ApiModelProperty(name = "last name", required = true)
     private String lastName;
 
     @Column(name = "message")
     @NotBlank(message = "Message cannot be blank")
-    @ApiModelProperty(name = "message", required = true)
     private String message;
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class BusinessService {
@@ -30,7 +29,7 @@ public class BusinessService {
     public List<Business> findAll() {
         List<Business> businesses = new ArrayList<>();
         businessRepository.findAll().forEach(businesses::add);
-        if (businesses.size() == 0) {
+        if (businesses.isEmpty()) {
             return new ArrayList<>();
         }
         return businesses;
@@ -39,7 +38,7 @@ public class BusinessService {
     public List<Business> findAllByBusinessType(String businessType) {
         List<Business> businesses = new ArrayList<>();
         businessRepository.findAllByBusinessType(StringUtils.capitalize(businessType)).forEach(businesses::add);
-        if (businesses.size() == 0) {
+        if (businesses.isEmpty()) {
             throw new ImmigrantException("Unavailable!");
         }
         return businesses;
@@ -47,9 +46,9 @@ public class BusinessService {
 
     public List<Business> saveAll(List<Business> list) {
         List<Business> businesses = new ArrayList<>();
-        list = list.stream().map(business -> Business.capitalize(Business.lowercase(business))).collect(Collectors.toList());
+        list = list.stream().map(business -> Business.capitalize(Business.lowercase(business))).toList();
         businessRepository.saveAll(list).forEach(businesses::add);
-        if (businesses.size() == 0) {
+        if (businesses.isEmpty()) {
             throw new ImmigrantException("Unavailable!");
         }
         return businesses;

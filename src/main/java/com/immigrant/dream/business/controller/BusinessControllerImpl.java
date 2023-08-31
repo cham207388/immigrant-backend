@@ -2,7 +2,6 @@ package com.immigrant.dream.business.controller;
 
 import com.immigrant.dream.business.entity.Business;
 import com.immigrant.dream.business.service.BusinessService;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(tags = "Business API")
 @RestController
 @RequestMapping(path = "/businesses")
 @CrossOrigin(maxAge = 3600)
